@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <restriction
+        android:key="homepageUrl"
+        android:title="@string/restriction_title_homepage_url"
+        android:restrictionType="string"
+        android:description="@string/restriction_description_homepage_url"
+        android:defaultValue="" />
+
+    <restriction
+        android:key="useHttpsOnly"
+        android:title="@string/restriction_title_use_https_only"
+        android:restrictionType="bool"
+        android:description="@string/restriction_description_use_https_only"
+        android:defaultValue="true" />
+
+    <restriction
+        android:key="bookmarkList"
+        android:restrictionType="bundle_array">
+        <restriction
+            android:key="bookmark"
+            android:restrictionType="bundle">
+            <restriction
+                android:title="@string/restriction_bookmark_name"
+                android:key="name"
+                android:restrictionType="string"/>
+            <restriction
+                android:key="value"
+                android:restrictionType="string"/>
+        </restriction>
+    </restriction>
+
+
+</restrictions>
