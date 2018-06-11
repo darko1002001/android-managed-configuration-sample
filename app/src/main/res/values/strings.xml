@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">EMM Managed Config</string>
-    <string name="restriction_title_homepage_url">Server URL</string>
-    <string name="restriction_description_homepage_url">Enter Server URL</string>
-    <string name="restriction_title_use_https_only">Use HTTPS only</string>
-    <string name="restriction_description_use_https_only">Do not allow unsecured connections</string>
-    <string name="restriction_bookmark_name">Bookmark name</string>
+
     <string name="search_go">Go</string>
     <string name="hint_enter_url">Enter URL</string>
     <string name="title_activity_login">Sign in</string>
@@ -18,5 +14,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="toast_message_invalid_url">Please make sure you are adding a valid URL</string>
+    <string name="counter_value">Count: %s</string>
+    <string name="text_secret_code">Not shown in admin but shown here for demo: \n %s</string>
 
 </resources>

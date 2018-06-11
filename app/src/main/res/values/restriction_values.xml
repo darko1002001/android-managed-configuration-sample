@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Bool restriction -->
+    <string name="title_can_increment_number">Can increment number</string>
+    <string name="description_can_increment_number">Whether the user can increment the number shown on the screen</string>
+    <bool name="default_can_increment_number">false</bool>
+
+    <!-- String restriction -->
+    <string name="title_welcome_text">Welcome Message</string>
+    <string name="description_welcome_text">Enter a welcome message</string>
+    <string name="default_welcome_text">Hello World!</string>
+
+    <!-- Integer restriction -->
+    <string name="title_number">Number to play around with</string>
+    <string name="description_number">Enter some sort of a number</string>
+    <integer name="default_number">333</integer>
+
+    <!-- Choice restriction -->
+    <string name="title_colors">Colors</string>
+    <string name="description_colors">The most amazing color</string>
+    <string name="entry_colors_red">Red</string>
+    <string name="entry_colors_blue">Blue</string>
+    <string name="entry_colors_android_green">Android Green</string>
+    <string-array name="entries_colors">
+        <item>@string/entry_colors_red</item>
+        <item>@string/entry_colors_blue</item>
+        <item>@string/entry_colors_android_green</item>
+    </string-array>
+    <string-array name="entry_values_colors">
+        <item>red</item>
+        <item>blue</item>
+        <item>androidGreen</item>
+    </string-array>
+    <string name="default_colors">androidGreen</string>
+
+    <!-- Multi-select restriction -->
+    <string name="title_user_level">User level</string>
+    <string name="description_user_level">The level of user permissions to set</string>
+    <string name="entry_user_level_guest">Guest</string>
+    <string name="entry_user_level_normal">Normal</string>
+    <string name="entry_user_level_admin">Admin</string>
+    <string-array name="entries_user_level">
+        <item>@string/entry_user_level_guest</item>
+        <item>@string/entry_user_level_normal</item>
+        <item>@string/entry_user_level_admin</item>
+    </string-array>
+    <string-array name="entry_values_user_level">
+        <item>guest</item>
+        <item>normal</item>
+        <item>admin</item>
+    </string-array>
+    <string-array name="default_user_level">
+        <!-- Empty -->
+    </string-array>
+
+    <!-- Hidden restriction -->
+    <string name="title_secret_code">Secret code</string>
+    <string name="description_secret_code">This restriction is hidden and will not be shown to the administrator.</string>
+    <string name="default_secret_code">(Hidden restriction must have some default value)</string>
+
+    <!-- Bundle array restriction -->
+    <string name="description_bookmarks">Enter bookmarks</string>
+    <string name="title_bookmarks">Bookmarks</string>
+    <string name="title_bookmark">Bookmark</string>
+    <string name="title_bookmark_key">Name</string>
+    <string name="title_bookmark_value">Value</string>
+
+
+    <string name="restriction_title_homepage_url">Homepage URL</string>
+    <string name="restriction_description_homepage_url">Enter Homepage URL</string>
+    <string name="restriction_title_use_https_only">Use HTTPS only</string>
+    <string name="restriction_description_use_https_only">Do not allow unsecured connections</string>
+</resources>

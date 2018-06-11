@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <restrictions xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <!-- Boolean restriction -->
+    <restriction
+        android:defaultValue="@bool/default_can_increment_number"
+        android:description="@string/description_can_increment_number"
+        android:key="can_clear_text"
+        android:restrictionType="bool"
+        android:title="@string/title_can_increment_number"/>
+
+    <!-- String restriction -->
+    <restriction
+        android:defaultValue="@string/default_welcome_text"
+        android:description="@string/description_welcome_text"
+        android:key="welcome_message"
+        android:restrictionType="string"
+        android:title="@string/title_welcome_text"/>
+
+    <!-- Integer restriction -->
+    <restriction
+        android:defaultValue="@integer/default_number"
+        android:description="@string/description_number"
+        android:key="number"
+        android:restrictionType="integer"
+        android:title="@string/title_number"/>
+
+    <!-- Choice restriction -->
+    <restriction
+        android:defaultValue="@string/default_colors"
+        android:description="@string/description_colors"
+        android:entries="@array/entries_colors"
+        android:entryValues="@array/entry_values_colors"
+        android:key="colors"
+        android:restrictionType="choice"
+        android:title="@string/title_colors"/>
+
+    <!-- Multi-select restriction -->
+    <restriction
+        android:defaultValue="@array/default_user_level"
+        android:description="@string/description_user_level"
+        android:entries="@array/entries_user_level"
+        android:entryValues="@array/entry_values_user_level"
+        android:key="user_level"
+        android:restrictionType="multi-select"
+        android:title="@string/title_user_level"/>
+
+    <!-- Hidden restriction -->
+    <restriction
+        android:defaultValue="@string/default_secret_code"
+        android:description="@string/description_secret_code"
+        android:key="secret_code"
+        android:restrictionType="hidden"
+        android:title="@string/title_secret_code"/>
+
     <restriction
         android:key="homepageUrl"
         android:title="@string/restriction_title_homepage_url"
@@ -15,21 +68,28 @@
         android:description="@string/restriction_description_use_https_only"
         android:defaultValue="true" />
 
+
+
     <restriction
+        android:description="@string/description_bookmarks"
+        android:title="@string/title_bookmarks"
         android:key="bookmarkList"
         android:restrictionType="bundle_array">
         <restriction
+            android:title="@string/title_bookmark"
             android:key="bookmark"
             android:restrictionType="bundle">
             <restriction
-                android:title="@string/restriction_bookmark_name"
+                android:title="@string/title_bookmark_key"
                 android:key="name"
                 android:restrictionType="string"/>
             <restriction
+                android:title="@string/title_bookmark_value"
                 android:key="value"
                 android:restrictionType="string"/>
         </restriction>
     </restriction>
+
 
 
 </restrictions>
