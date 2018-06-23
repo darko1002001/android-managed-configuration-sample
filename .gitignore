@@ -8,6 +8,8 @@
 # DS store mac files
 .DS_Store
 
+*.keystore
+
 # Java class files
 *.class
 
