@@ -4,7 +4,7 @@
     <!-- Bool restriction -->
     <string name="title_can_increment_number">Can increment number</string>
     <string name="description_can_increment_number">Whether the user can increment the number shown on the screen</string>
-    <bool name="default_can_increment_number">false</bool>
+    <bool name="default_can_increment_number">true</bool>
 
     <!-- String restriction -->
     <string name="title_welcome_text">Welcome Message</string>
@@ -14,7 +14,7 @@
     <!-- Integer restriction -->
     <string name="title_number">Number to play around with</string>
     <string name="description_number">Enter some sort of a number</string>
-    <integer name="default_number">333</integer>
+    <integer name="default_number">123</integer>
 
     <!-- Choice restriction -->
     <string name="title_colors">Colors</string>
@@ -35,23 +35,25 @@
     <string name="default_colors">androidGreen</string>
 
     <!-- Multi-select restriction -->
-    <string name="title_user_level">User level</string>
-    <string name="description_user_level">The level of user permissions to set</string>
-    <string name="entry_user_level_guest">Guest</string>
-    <string name="entry_user_level_normal">Normal</string>
-    <string name="entry_user_level_admin">Admin</string>
-    <string-array name="entries_user_level">
-        <item>@string/entry_user_level_guest</item>
-        <item>@string/entry_user_level_normal</item>
-        <item>@string/entry_user_level_admin</item>
+    <string name="title_user_role">User Access Roles</string>
+    <string name="description_user_role">Access roles that the user has</string>
+    <string name="entry_user_role_read_newsfeed">Read news feed</string>
+    <string name="entry_user_role_access_camera">Access camera features</string>
+    <string name="entry_user_role_access_contacts">Access contacts</string>
+    <string name="entry_user_role_publish_news">Publish content</string>
+    <string-array name="entries_user_role">
+        <item>@string/entry_user_role_read_newsfeed</item>
+        <item>@string/entry_user_role_access_camera</item>
+        <item>@string/entry_user_role_access_contacts</item>
+        <item>@string/entry_user_role_publish_news</item>
     </string-array>
-    <string-array name="entry_values_user_level">
-        <item>guest</item>
-        <item>normal</item>
-        <item>admin</item>
+    <string-array name="entry_values_user_role">
+        <item>readNewsFeed</item>
+        <item>accessCamera</item>
+        <item>accessContacts</item>
+        <item>publishNews</item>
     </string-array>
-    <string-array name="default_user_level">
-        <!-- Empty -->
+    <string-array name="default_user_role">
     </string-array>
 
     <!-- Hidden restriction -->

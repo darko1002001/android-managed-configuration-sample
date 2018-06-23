@@ -9,12 +9,7 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="toast_message_invalid_url">Please make sure you are adding a valid URL</string>
-    <string name="counter_value">Count: %s</string>
+    <string name="counter_value">Count: %d</string>
     <string name="text_secret_code">Not shown in admin but shown here for demo: \n %s</string>
 
 </resources>

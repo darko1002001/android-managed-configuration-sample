@@ -6,7 +6,7 @@
     <restriction
         android:defaultValue="@bool/default_can_increment_number"
         android:description="@string/description_can_increment_number"
-        android:key="can_clear_text"
+        android:key="can_increment_number"
         android:restrictionType="bool"
         android:title="@string/title_can_increment_number"/>
 
@@ -38,13 +38,13 @@
 
     <!-- Multi-select restriction -->
     <restriction
-        android:defaultValue="@array/default_user_level"
-        android:description="@string/description_user_level"
-        android:entries="@array/entries_user_level"
-        android:entryValues="@array/entry_values_user_level"
-        android:key="user_level"
+        android:defaultValue="@array/default_user_role"
+        android:description="@string/description_user_role"
+        android:entries="@array/entries_user_role"
+        android:entryValues="@array/entry_values_user_role"
+        android:key="user_role"
         android:restrictionType="multi-select"
-        android:title="@string/title_user_level"/>
+        android:title="@string/title_user_role"/>
 
     <!-- Hidden restriction -->
     <restriction
@@ -73,7 +73,7 @@
     <restriction
         android:description="@string/description_bookmarks"
         android:title="@string/title_bookmarks"
-        android:key="bookmarkList"
+        android:key="bookmark_list"
         android:restrictionType="bundle_array">
         <restriction
             android:title="@string/title_bookmark"
@@ -81,11 +81,11 @@
             android:restrictionType="bundle">
             <restriction
                 android:title="@string/title_bookmark_key"
-                android:key="name"
+                android:key="bookmark_name"
                 android:restrictionType="string"/>
             <restriction
                 android:title="@string/title_bookmark_value"
-                android:key="value"
+                android:key="bookmark_value"
                 android:restrictionType="string"/>
         </restriction>
     </restriction>
