@@ -54,24 +54,8 @@
         android:restrictionType="hidden"
         android:title="@string/title_secret_code"/>
 
-    <restriction
-        android:key="homepageUrl"
-        android:title="@string/restriction_title_homepage_url"
-        android:restrictionType="string"
-        android:description="@string/restriction_description_homepage_url"
-        android:defaultValue="" />
 
     <restriction
-        android:key="useHttpsOnly"
-        android:title="@string/restriction_title_use_https_only"
-        android:restrictionType="bool"
-        android:description="@string/restriction_description_use_https_only"
-        android:defaultValue="true" />
-
-
-
-    <restriction
-        android:description="@string/description_bookmarks"
         android:title="@string/title_bookmarks"
         android:key="bookmark_list"
         android:restrictionType="bundle_array">
@@ -82,10 +66,12 @@
             <restriction
                 android:title="@string/title_bookmark_key"
                 android:key="bookmark_name"
+                android:description="@string/description_bookmark_key"
                 android:restrictionType="string"/>
             <restriction
                 android:title="@string/title_bookmark_value"
                 android:key="bookmark_value"
+                android:description="@string/description_bookmark_value"
                 android:restrictionType="string"/>
         </restriction>
     </restriction>

@@ -26,11 +26,11 @@ class LoginActivity : AppCompatActivity() {
                 .observeOn(Schedulers.io())
                 .delay(1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ _ -> navigateToMainActivity() })
+                .subscribe({ _ -> navigateToSimpleActivity() })
     }
 
-    private fun navigateToMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
+    private fun navigateToSimpleActivity() {
+        val intent = Intent(this, SimpleActivity::class.java)
         startActivity(intent)
         finish()
     }

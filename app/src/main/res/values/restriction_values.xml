@@ -59,18 +59,14 @@
     <!-- Hidden restriction -->
     <string name="title_secret_code">Secret code</string>
     <string name="description_secret_code">This restriction is hidden and will not be shown to the administrator.</string>
-    <string name="default_secret_code">(Hidden restriction must have some default value)</string>
+    <string name="default_secret_code">${userEmailAddress}</string>
 
     <!-- Bundle array restriction -->
-    <string name="description_bookmarks">Enter bookmarks</string>
     <string name="title_bookmarks">Bookmarks</string>
     <string name="title_bookmark">Bookmark</string>
     <string name="title_bookmark_key">Name</string>
+    <string name="description_bookmark_key">Enter the bookmark name that will be visible to the user</string>
     <string name="title_bookmark_value">Value</string>
+    <string name="description_bookmark_value">Enter an URL for the bookmark, ex. https://example.com</string>
 
-
-    <string name="restriction_title_homepage_url">Homepage URL</string>
-    <string name="restriction_description_homepage_url">Enter Homepage URL</string>
-    <string name="restriction_title_use_https_only">Use HTTPS only</string>
-    <string name="restriction_description_use_https_only">Do not allow unsecured connections</string>
 </resources>

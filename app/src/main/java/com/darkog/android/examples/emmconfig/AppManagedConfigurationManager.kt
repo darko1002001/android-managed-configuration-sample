@@ -5,6 +5,7 @@ import android.content.RestrictionEntry
 import android.content.RestrictionsManager
 import android.os.Build
 import android.os.Bundle
+import android.os.UserManager
 
 
 class AppManagedConfigurationManager(context: Context) {
@@ -14,13 +15,22 @@ class AppManagedConfigurationManager(context: Context) {
     private lateinit var entriesMap: Map<String, RestrictionEntry>
     private lateinit var applicationRestrictions: Bundle
 
-    init {
-        updateValues()
-    }
-
-    private fun updateValues() {
+    fun updateValues() {
         entriesMap = restrictionsManager.getManifestRestrictions(context.packageName).associateBy { it.key }
         applicationRestrictions = restrictionsManager.applicationRestrictions
+    }
+
+    fun isDeviceManaged(): Boolean = !restrictionsManager.applicationRestrictions.isEmpty
+
+    fun isMissingConfigurations(): Boolean {
+        if (!KEY_RESTRICTIONS_PENDING_SUPPORTED) {
+            restrictionsManager.applicationRestrictions.let {
+                if (it.containsKey(UserManager.KEY_RESTRICTIONS_PENDING)) {
+                    return it.getBoolean(UserManager.KEY_RESTRICTIONS_PENDING)
+                }
+            }
+        }
+        return false
     }
 
     fun canIncrementNumber() = resolveBoolean(KEY_CAN_INCREMENT_NUMBER)
@@ -31,6 +41,19 @@ class AppManagedConfigurationManager(context: Context) {
     fun secretCode() = resolveString(KEY_SECRET_CODE)
     fun homepageUrl() = resolveString(KEY_HOMEPAGE_URL)
 
+    /**
+     * This is just to show the typical full process of extracting a value for a key.
+     */
+    private fun serverUrlInASingleMethod(key: String = "serverUrl"): String {
+        val restrictionsManager = context.getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
+        val entry = restrictionsManager.getManifestRestrictions(context.packageName).first { key == it.key }
+        val applicationRestrictions = restrictionsManager.applicationRestrictions
+        return if (applicationRestrictions.containsKey(key)) {
+            applicationRestrictions.getString(key)
+        } else {
+            entry.selectedString
+        }
+    }
 
     private fun resolveMulti(key: String) = resolve(key, { it.getStringArrayList(key) }, { it.allSelectedStrings.toList() })
     private fun resolveString(key: String) = resolve(key, { it.getString(key) }, { it.selectedString })
@@ -47,6 +70,7 @@ class AppManagedConfigurationManager(context: Context) {
 
     companion object {
         private val BUNDLE_SUPPORTED = Build.VERSION.SDK_INT >= 23
+        private val KEY_RESTRICTIONS_PENDING_SUPPORTED = Build.VERSION.SDK_INT >= 22
 
         private const val KEY_CAN_INCREMENT_NUMBER = "can_increment_number"
         private const val KEY_WELCOME_MESSAGE = "welcome_message"
@@ -68,3 +92,4 @@ class AppManagedConfigurationManager(context: Context) {
 
     }
 }
+
