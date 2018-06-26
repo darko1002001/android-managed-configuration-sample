@@ -34,6 +34,7 @@ class SimpleActivity : AppCompatActivity() {
         broadcastReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 // Fetch and use new values
+                updateConfiguredValues()
             }
         }
         this.registerReceiver(broadcastReceiver,
@@ -67,6 +68,7 @@ class SimpleActivity : AppCompatActivity() {
         textViewColorSelection.text = appManagedConfigurationManager.color()
         textViewUserLevel.text = TextUtils.join("\n", appManagedConfigurationManager.userLevel())
         textViewSecretCode.text = getString(R.string.text_secret_code, appManagedConfigurationManager.secretCode())
+        textViewBookmarks.text = TextUtils.join("\n", appManagedConfigurationManager.bookmarks().map { "${it.key} - ${it.value}" })
     }
 
     private class CounterModifier(val button: Button) {

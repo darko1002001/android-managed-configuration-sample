@@ -36,15 +36,25 @@ class AppManagedConfigurationManager(context: Context) {
     fun canIncrementNumber() = resolveBoolean(KEY_CAN_INCREMENT_NUMBER)
     fun number() = resolveInt(KEY_NUMBER)
     fun welcomeMessage() = resolveString(KEY_WELCOME_MESSAGE)
+    fun username() = resolveString(KEY_USERNAME)
     fun color() = resolveString(KEY_COLORS)
     fun userLevel() = resolveMulti(KEY_USER_ROLE)
     fun secretCode() = resolveString(KEY_SECRET_CODE)
-    fun homepageUrl() = resolveString(KEY_HOMEPAGE_URL)
+    fun bookmarks(): List<Bookmark> {
+        if (!isBundleSupported() || !applicationRestrictions.containsKey(KEY_BOOKMARK_LIST)) {
+            return emptyList()
+        }
+
+        return applicationRestrictions.getParcelableArray(KEY_BOOKMARK_LIST)
+                .map { it as Bundle }
+                .toList()
+                .map { Bookmark(it.getString(KEY_BOOKMARK_NAME), it.getString(KEY_BOOKMARK_VALUE)) }
+    }
 
     /**
      * This is just to show the typical full process of extracting a value for a key.
      */
-    private fun serverUrlInASingleMethod(key: String = "serverUrl"): String {
+    private fun welcomeMessageInASingleMethod(key: String = KEY_WELCOME_MESSAGE): String {
         val restrictionsManager = context.getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
         val entry = restrictionsManager.getManifestRestrictions(context.packageName).first { key == it.key }
         val applicationRestrictions = restrictionsManager.applicationRestrictions
@@ -83,8 +93,7 @@ class AppManagedConfigurationManager(context: Context) {
         private const val KEY_BOOKMARK_NAME = "bookmark_name"
         private const val KEY_BOOKMARK_VALUE = "bookmark_value"
 
-        private const val KEY_HOMEPAGE_URL = "homepageUrl"
-        private const val KEY_HTTPS_ONLY = "useHttpsOnly"
+        private const val KEY_USERNAME = "username"
 
         fun isBundleSupported(): Boolean {
             return BUNDLE_SUPPORTED

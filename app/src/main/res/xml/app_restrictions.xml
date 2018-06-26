@@ -76,6 +76,12 @@
         </restriction>
     </restriction>
 
+    <restriction
+        android:defaultValue="@string/default_username"
+        android:description="@string/description_username"
+        android:key="username"
+        android:restrictionType="string"
+        android:title="@string/title_username"/>
 
 
 </restrictions>

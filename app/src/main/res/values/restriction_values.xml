@@ -69,4 +69,10 @@
     <string name="title_bookmark_value">Value</string>
     <string name="description_bookmark_value">Enter an URL for the bookmark, ex. https://example.com</string>
 
+
+    <string name="title_username">Enter the username for the login screen</string>
+    <string name="description_username">This should be a dynamic property or just the company domain that needs to be forwarded to the app for login</string>
+    <string name="default_username">${userEmailAddress}</string>
+
+
 </resources>
