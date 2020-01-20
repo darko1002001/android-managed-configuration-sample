@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CertificatesActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
@@ -25,9 +26,7 @@
             android:name="android.content.APP_RESTRICTIONS"
             android:resource="@xml/app_restrictions" />
 
-        <activity android:name=".SimpleActivity">
-
-        </activity>
+        <activity android:name=".SimpleActivity"></activity>
     </application>
 
 </manifest>

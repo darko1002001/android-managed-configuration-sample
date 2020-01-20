@@ -2,8 +2,7 @@ package com.darkog.android.examples.emmconfig
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.darkog.android.examples.emmconfig.R.layout.activity_login
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -13,7 +12,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        buttonSignIn.setOnClickListener { signIn() }
+        buttonGoToSimple.setOnClickListener { goToSimple() }
+        buttonGoToCertificates.setOnClickListener { goToCertificates() }
         configurationManager = AppManagedConfigurationManager(this)
         configurationManager.updateValues()
         if (configurationManager.isDeviceManaged()) {
@@ -21,12 +21,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun signIn() {
-        navigateToSimpleActivity()
+    private fun goToSimple() {
+        val intent = Intent(this, SimpleActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
-    private fun navigateToSimpleActivity() {
-        val intent = Intent(this, SimpleActivity::class.java)
+    private fun goToCertificates() {
+        val intent = Intent(this, CertificatesActivity::class.java)
         startActivity(intent)
         finish()
     }

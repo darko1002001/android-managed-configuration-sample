@@ -83,5 +83,12 @@
         android:restrictionType="string"
         android:title="@string/title_username"/>
 
+    <restriction
+        android:defaultValue=""
+        android:description="@string/description_certificate_alias"
+        android:key="certificate_alias"
+        android:restrictionType="string"
+        android:title="@string/title_certificate_alias"/>
+
 
 </restrictions>

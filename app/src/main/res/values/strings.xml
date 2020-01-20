@@ -8,7 +8,8 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in</string>
+    <string name="action_go_to_simple">Go To Simple Info</string>
+    <string name="action_go_to_certificates">Go To Certificates</string>
     <string name="counter_value">Count: %d</string>
     <string name="text_secret_code">Not shown in admin but shown here for demo: \n %s</string>
 

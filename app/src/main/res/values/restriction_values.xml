@@ -74,5 +74,8 @@
     <string name="description_username">This should be a dynamic property or just the company domain that needs to be forwarded to the app for login</string>
     <string name="default_username">${userEmailAddress}</string>
 
+    <string name="description_certificate_alias">Select a certificate alias to be delivered to the device</string>
+    <string name="title_certificate_alias">Certificate Alias</string>
+
 
 </resources>

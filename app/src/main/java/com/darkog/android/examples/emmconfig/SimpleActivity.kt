@@ -1,7 +1,7 @@
 package com.darkog.android.examples.emmconfig
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
@@ -64,9 +64,10 @@ class SimpleActivity : AppCompatActivity() {
         buttonIncrement.isEnabled = appManagedConfigurationManager.canIncrementNumber()
         counterModifier.counter = appManagedConfigurationManager.number()
 
+        textViewCertificateAlias.text = "Certificate Alias ${appManagedConfigurationManager.certificateAlias()}"
         textViewWelcomeMessage.text = appManagedConfigurationManager.welcomeMessage()
         textViewColorSelection.text = appManagedConfigurationManager.color()
-        textViewUserLevel.text = TextUtils.join("\n", appManagedConfigurationManager.userLevel())
+        textViewUserLevel.text = TextUtils.join("\n", appManagedConfigurationManager.userLevel().orEmpty())
         textViewSecretCode.text = getString(R.string.text_secret_code, appManagedConfigurationManager.secretCode())
         textViewBookmarks.text = TextUtils.join("\n", appManagedConfigurationManager.bookmarks().map { "${it.key} - ${it.value}" })
     }

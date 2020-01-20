@@ -37,6 +37,7 @@ class AppManagedConfigurationManager(context: Context) {
     fun number() = resolveInt(KEY_NUMBER)
     fun welcomeMessage() = resolveString(KEY_WELCOME_MESSAGE)
     fun username() = resolveString(KEY_USERNAME)
+    fun certificateAlias() = resolveString(KEY_CERTIFICATE_ALIAS)
     fun color() = resolveString(KEY_COLORS)
     fun userLevel() = resolveMulti(KEY_USER_ROLE)
     fun secretCode() = resolveString(KEY_SECRET_CODE)
@@ -45,10 +46,12 @@ class AppManagedConfigurationManager(context: Context) {
             return emptyList()
         }
 
+
         return applicationRestrictions.getParcelableArray(KEY_BOOKMARK_LIST)
-                .map { it as Bundle }
-                .toList()
-                .map { Bookmark(it.getString(KEY_BOOKMARK_NAME), it.getString(KEY_BOOKMARK_VALUE)) }
+                ?.map { it as Bundle }
+                ?.toList()
+                ?.map { Bookmark(it.getString(KEY_BOOKMARK_NAME).orEmpty(), it.getString(KEY_BOOKMARK_VALUE).orEmpty()) }
+                .orEmpty()
     }
 
     /**
@@ -59,7 +62,7 @@ class AppManagedConfigurationManager(context: Context) {
         val entry = restrictionsManager.getManifestRestrictions(context.packageName).first { key == it.key }
         val applicationRestrictions = restrictionsManager.applicationRestrictions
         return if (applicationRestrictions.containsKey(key)) {
-            applicationRestrictions.getString(key)
+            applicationRestrictions.getString(key).orEmpty()
         } else {
             entry.selectedString
         }
@@ -94,6 +97,7 @@ class AppManagedConfigurationManager(context: Context) {
         private const val KEY_BOOKMARK_VALUE = "bookmark_value"
 
         private const val KEY_USERNAME = "username"
+        private const val KEY_CERTIFICATE_ALIAS = "certificate_alias"
 
         fun isBundleSupported(): Boolean {
             return BUNDLE_SUPPORTED
